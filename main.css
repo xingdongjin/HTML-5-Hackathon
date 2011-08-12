@@ -1,0 +1,43 @@
+#door {
+	float: right;
+	height: 200px;
+	width: 200px;
+	border: red solid 1px;
+}
+
+#queue {
+	float: left;
+	height: 200px;
+	width: 200px;
+	border: green solid 1px;
+}
+
+.attendee {
+	width: 10px;
+	height: 10px;
+	background-color: #666;
+	position: absolute;
+	transition-property: left;
+ 	transition-duration: 3s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-property: left;
+	-webkit-transition-duration: 3s;
+	-webkit-transition-timing-function: ease-in-out;
+}
+
+#checkin {
+	width: 5px;
+	height: 5px;
+	background-color: orange;
+}
+
+#billboard {
+	width: 500px;
+	height: 100px;
+	border: black solid 1px;
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+}
