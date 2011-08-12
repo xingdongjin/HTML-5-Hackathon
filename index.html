@@ -7,9 +7,12 @@
 	</head>
 	<body>
 		<div class="background_container">
-			<div id="video_container" style="-webkit-perspective: 1400; position: absolute; top: 25px; left: 545px;">
-				<video src="movie.webm" width="320" height="120" id="movie" loop="loop" autoplay="autoplay" style="-webkit-transform: scale(1) rotateY(-50deg) !important;">
-					Placeholder
+			<div id="video_container" style="position: absolute; top: 25px; left: 545px;">
+				<video width="320" height="120" id="movie" loop="loop" autoplay="autoplay" style="-webkit-transform: perspective(1400) scale(1) rotateY(-50deg);">
+					<source src='movie.ogg' type='video/ogg; codecs="theora, vorbis"'>
+					<source src='movie.webm' type='video/webm; codecs="vp8.0, vorbis"'>
+        			<source src='movie.mp4' type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'>
+					Your browser doesn't support HTML 5 video.
 				</video>
 			</div>
 		<div>
