@@ -15,9 +15,15 @@
     width: 123px;
     height: 120px;
     position: absolute;
+    
     transition-property: left;
     transition-duration: 12s;
     transition-timing-function: ease-in-out;
+    
+    -moz-transition-property: left;
+    -moz-transition-duration: 12s;
+    -moz-transition-timing-function: ease-in-out;
+    
     -webkit-transition-property: left;
     -webkit-transition-duration: 12s;
     -webkit-transition-timing-function: ease-in-out;
@@ -57,9 +63,15 @@
 	padding: 15px;
 	font
     text-align: center;
+    
     transition-property: top, opacity;
     transition-duration: 12s;
-    -transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    
+    -moz-transition-property: top, opacity;
+    -moz-transition-duration: 12s;
+    -moz-transition-timing-function: ease-in;
+    
     -webkit-transition-property: top, opacity;
     -webkit-transition-duration: 12s;
     -webkit-transition-timing-function: ease-in;
