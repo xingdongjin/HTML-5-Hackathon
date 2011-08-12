@@ -19,13 +19,14 @@ EB = {
 
 		var checkin_date = new Date(parseInt(EB.curTime) * 1000);
 		var hours = checkin_date.getHours();
+		var amPm = hours < 12 ? " AM" : " PM";
 		if (hours > 12)
 			hours -= 12;
 		var minutes = checkin_date.getMinutes();
 		if (minutes < 10)
 			minutes = "0" + minutes;
 		$("#checkin_time").html(
-				hours + ":" + minutes + (hours < 12 ? " AM" : "PM"));
+				hours + ":" + minutes + amPm);
 		if (EB.curTime < EB.maxTime) {
 			// increment time by one minute
 			EB.curTime += 60;
