@@ -6,17 +6,42 @@
 		<link rel="stylesheet" type="text/css" href="main.css" />
 	</head>
 	<body>
-		<div id="queue">
+		<div class="background_container">
+			<div id="video_container" style="-webkit-perspective: 1400; position: absolute; top: 25px; left: 545px;">
+				<video src="movie.webm" width="320" height="120" id="movie" loop="loop" autoplay="autoplay" style="-webkit-transform: scale(1) rotateY(-50deg) !important;">
+					Placeholder
+				</video>
+			</div>
+		<div>
+			<img src="images/droid-bouncer.gif" style="position: absolute; left: 500px; top: 350px"> 
 		</div>
-		<div id="door">
-			<div id="checkin">
+		
+		<div>
+			<img src="images/droids_line.png" style="position: absolute; left: 10px; top: 360px; z-index: 1000"> 
+		</div>
+		
+		<div>
+			<img src="images/door_bg.png" style="position: absolute; left: 687px; top: 305px; z-index: 1000"> 
+		</div>
+		
+			<div id="billboard">
+				<div id="checkin_time">
+				</div>
+				<div id="name">
+				</div>
+			</div>
+			<div id="queue">
+			</div>
+			<div id="door">
+			</div>
+			<div class="clear">
 			</div>
 		</div>
-		<div class="clear">
+		<div id="checkin_list">
+			<span id="checkin_list_title">Checked In</span>
+			<div id="scroll_list"></div>
 		</div>
-		<div id="billboard">
-		</div>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+		<script type="text/javascript" src="jquery.min.js">
 		</script>
 		<script type="text/javascript" src="global.js">
 		</script>
