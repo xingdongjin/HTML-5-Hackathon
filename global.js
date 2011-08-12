@@ -24,7 +24,8 @@ EB = {
 		var minutes = checkin_date.getMinutes();
 		if (minutes < 10)
 			minutes = "0" + minutes;
-		$("#checkin_time").html(hours + ":" + minutes);
+		$("#checkin_time").html(
+				hours + ":" + minutes + (hours < 12 ? " AM" : "PM"));
 		if (EB.curTime < EB.maxTime) {
 			// increment time by one minute
 			EB.curTime += 60;
@@ -43,12 +44,15 @@ EB = {
 		var newLeft = EB.doorLeft + $("#attendee" + index).offset().left - 29;
 		$("#attendee" + index).css('left', newLeft);
 		$("#attendee" + index).addClass('checkingIn');
-		$("#attendee" + index).css('webkitTransitionDelay', Math.random() + "s");
+		$("#attendee" + index)
+				.css('webkitTransitionDelay', Math.random() + "s");
 
 		var full_name = EB.attendees[index].firstname + " "
 				+ EB.attendees[index].lastname;
 		$("#scroll_list").append(full_name + "<br/>");
-		$("#scroll_list").attr({ scrollTop: $("#scroll_list").attr("scrollHeight") });
+		$("#scroll_list").attr( {
+			scrollTop : $("#scroll_list").attr("scrollHeight")
+		});
 		var name_bubble = $('<div class="name_bubble">' + full_name + '</div>');
 		$("#attendee" + index).prepend(name_bubble);
 		var top = parseInt(name_bubble.css('top'), 10) - 50;
@@ -77,18 +81,31 @@ EB = {
 		$("#queue").html(str);
 		EB.doorLeft = $("#door").offset().left;
 		window.setTimeout(EB.timeCheck, 500);
-		window.setInterval(EB.animate, 80);
+		EB.animate();
 	},
 
-	animate : function() {
+	doAnimate : function() {
 		$(".checkingIn").css('background-position',
 				EB.sprite_offset * EB.SPRITE_WIDTH + "px 0");
 		EB.sprite_offset++;
 		if (EB.sprite_offset > 6)
 			EB.sprite_offset = 0;
+	},
+
+	animate : function() {
+		requestAnimFrame(EB.animate);
+		EB.doAnimate();
 	}
 };
 
 $(document).ready(function() {
 	EB.init();
 });
+
+window.requestAnimFrame = (function() {
+	return window.requestAnimationFrame || window.webkitRequestAnimationFrame
+			|| window.mozRequestAnimationFrame || window.oRequestAnimationFrame
+			|| window.msRequestAnimationFrame || function(callback) {
+				window.setTimeout(callback, 60);
+			};
+})();
